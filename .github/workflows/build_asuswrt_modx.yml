@@ -29,7 +29,7 @@ on:
         description: 'whether to upload firmware to wettransfer'
         default: 'false'
 env:
-  REPOSITORY_URL: https://github.com/stkuroneko/asuswrt-modx.git
+  REPOSITORY_URL: https://github.com/nanchuci/asuswrt-modx.git
   WORK_PATH: /opt/asuswrt-modx
   TIME_ZONE: Asia/Shanghai
   FIRMWARE_PATH: /opt/firmwares
@@ -61,7 +61,7 @@ jobs:
         git clone --depth=1 $REPOSITORY_URL $WORK_PATH
     - name: Build
       run: |
-        sudo cp -f scripts/build.sh $WORK_PATH/build.sh
+        sudo cp -f build.sh $WORK_PATH/build.sh
         cd $WORK_PATH
         sudo chmod 777 ./build.sh
         bash ./build.sh ${{ github.event.inputs.target }}
