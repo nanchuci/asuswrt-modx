@@ -61,7 +61,7 @@ jobs:
         git clone --depth=1 $REPOSITORY_URL $WORK_PATH
     - name: Build
       run: |
-        sudo cp -f build.sh $WORK_PATH/build.sh
+        sudo cp -f scripts/build.sh $WORK_PATH/build.sh
         cd $WORK_PATH
         sudo chmod 777 ./build.sh
         bash ./build.sh ${{ github.event.inputs.target }}
