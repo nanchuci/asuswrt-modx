@@ -11644,6 +11644,13 @@ check_ddr_done:
 		if(action & RC_SERVICE_START) start_skipd();
 	}
 #endif
+#ifdef RTCONFIG_SMARTDNS
+	else if (strcmp(script, "smartdns") == 0)
+	{
+		if(action & RC_SERVICE_STOP) stop_smartdns();
+		if(action & RC_SERVICE_START) start_smartdns();
+	}
+#endif
 #ifdef RTCONFIG_DHCP_OVERRIDE
 	else if (strcmp(script, "dhcpd") == 0)
 	{
@@ -13871,7 +13878,7 @@ void start_roamast(void){
 		}
 	}
 }
-#elif defined(RTMIR3G) || defined(RTMIR3P) || defined(RTMIR4A) || defined(RTRM2100) || defined(RTR2100) || defined(RTNEWIFI2) || defined(RTNEWIFI3) || defined(RTHIWIFI4) || defined(RTE8820S) || defined(RTA040WQ) || defined(RTMSG1500) || defined(RTJDC1) || defined(RTMT1300)
+#elif defined(RTMIR3G) || defined(RTMIR3P) || defined(RTMIR4A) || defined(RTRM2100) || defined(RTR2100) || defined(RTNEWIFI2) || defined(RTRS1200P) || defined(RTNEWIFI3) || defined(RTHIWIFI4) || defined(RTE8820S) || defined(RTA040WQ) || defined(RTMSG1500) || defined(RTJDC1) || defined(RTMT1300)
 void start_roamast(void){
 	int rssi, i;
 	char prefix[] = "wl_XXXXX";
